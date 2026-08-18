@@ -91,6 +91,6 @@ npm run dev
 ---
 
 ## 👥 Contributors
-* **Sumit** ([@Mjlonir29](https://github.com/Mjlonir29))
+* **Sumit Malviya** ([@Mjlonir29](https://github.com/Mjlonir29))
 * **Agnibha Dey** ([@Agni207](https://github.com/Agni207))
 * **Ranjan Mandal** ([@kumar-ranjan30](https://github.com/kumar-ranjan30))
