@@ -113,30 +113,35 @@ const CustomerTableView = () => {
 
       if (ordersRes.status === 'fulfilled' && ordersRes.value.data?.success) {
         foundOrder = ordersRes.value.data.orders.find(o => 
-          o.table.toLowerCase().includes(formattedTableNumber.toLowerCase()) ||
-          (foundTable && foundTable.currentOrder && o.id.includes(foundTable.currentOrder.replace('#', '')))
+          (o.table && o.table.toLowerCase().includes(formattedTableNumber.toLowerCase())) ||
+          (foundTable && foundTable.currentOrder && o.id && String(o.id).includes(String(foundTable.currentOrder).replace('#', '')))
         );
       }
 
       if (foundOrder) {
-        const itemsList = foundOrder.items.split(', ').map((itemStr, idx) => {
-          const parts = itemStr.split('x ');
-          const qty = parts.length > 1 ? parseInt(parts[0]) : 1;
-          const name = parts.length > 1 ? parts[1] : itemStr;
-          const price = Math.round(foundOrder.amount / (foundOrder.items.split(', ').length * (qty || 1))) || 180;
-          return { id: idx + 1, name, qty, price, total: qty * price };
-        });
+        let itemsList = [];
+        if (typeof foundOrder.items === 'string') {
+          itemsList = foundOrder.items.split(', ').map((itemStr, idx) => {
+            const parts = itemStr.split('x ');
+            const qty = parts.length > 1 ? parseInt(parts[0]) || 1 : 1;
+            const name = parts.length > 1 ? parts[1] : itemStr;
+            const price = Math.round((foundOrder.amount || 200) / (foundOrder.items.split(', ').length * (qty || 1))) || 180;
+            return { id: idx + 1, name, qty, price, total: qty * price };
+          });
+        }
 
-        const subtotal = foundOrder.amount;
+        const subtotal = Number(foundOrder.amount) || 0;
         const gst = Math.round(subtotal * 0.05);
         const service = Math.round(subtotal * 0.05);
         const grandTotal = subtotal + gst + service;
 
         setOrderDetails({
-          orderId: foundOrder.id,
-          status: foundOrder.status,
-          time: foundOrder.time,
-          items: itemsList,
+          orderId: foundOrder.id || '101',
+          status: foundOrder.status || 'Pending',
+          time: foundOrder.time || 'Just now',
+          items: itemsList.length > 0 ? itemsList : [
+            { id: 1, name: 'Table Order (In Prep)', qty: 1, price: subtotal, total: subtotal }
+          ],
           subtotal,
           gst,
           service,
@@ -163,6 +168,32 @@ const CustomerTableView = () => {
 
   const handleCallWaiter = () => {
     showToast(`🔔 Server notified for Table ${formattedTableNumber}! Someone will assist you shortly.`);
+  };
+
+  const handlePayBill = async () => {
+    try {
+      setPaymentDone(true);
+      showToast(`🎉 Payment of ₹${orderDetails.grandTotal} received! Bill settled.`);
+
+      if (orderDetails.orderId) {
+        await axios.put(`${API_BASE_URL}/api/orders/${orderDetails.orderId}`, {
+          status: 'Completed'
+        });
+      }
+
+      if (tableData && tableData.id) {
+        await axios.put(`${API_BASE_URL}/api/tables/${tableData.id}`, {
+          status: 'Available',
+          currentOrder: '-'
+        });
+      }
+
+      setTimeout(() => {
+        fetchLiveTableData();
+      }, 1500);
+    } catch (err) {
+      console.log('Payment error:', err.message);
+    }
   };
 
   const handleOpenCustomization = (dish) => {
