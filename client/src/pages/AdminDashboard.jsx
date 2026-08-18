@@ -656,7 +656,7 @@ const AdminDashboard = () => {
   );
 
   return (
-    <div className="flex h-screen bg-slate-950 text-slate-100 font-sans relative overflow-hidden">
+    <div className="flex h-screen bg-[#0d1117] text-[#f0f6fc] font-sans relative overflow-hidden">
       
       {/* Toast Notification Alert */}
       {toastMessage && (
@@ -679,7 +679,7 @@ const AdminDashboard = () => {
       {isSidebarOpen && (
         <div 
           onClick={() => setIsSidebarOpen(false)}
-          className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-40 transition-opacity"
+          className="fixed inset-0 bg-[#0d1117]/80 backdrop-blur-sm z-40 transition-opacity"
         />
       )}
 
@@ -688,23 +688,23 @@ const AdminDashboard = () => {
       <aside 
         className={`fixed md:relative inset-y-0 left-0 ${
           isSidebarCollapsed ? 'md:w-20' : 'md:w-64'
-        } w-64 bg-slate-900/95 backdrop-blur-xl border-r border-slate-800 text-white flex flex-col z-50 transition-all duration-300 ${
+        } w-64 bg-[#161b22]/95 backdrop-blur-xl border-r border-[#30363d] text-white flex flex-col z-50 transition-all duration-300 ${
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
         }`}
       >
         
         {/* Brand Header */}
-        <div className="p-5 border-b border-slate-800 flex items-center justify-between">
+        <div className="p-5 border-b border-[#30363d] flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/20 ring-2 ring-amber-400/30 flex-shrink-0">
-              <Flame className="w-6 h-6 text-slate-950 fill-slate-950" />
+            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center shadow-lg shadow-emerald-950/40 ring-2 ring-amber-400/30 flex-shrink-0">
+              <Flame className="w-6 h-6 text-emerald-400 fill-emerald-400" />
             </div>
             {!isSidebarCollapsed && (
               <div>
                 <h2 className="text-xl font-bold font-heading tracking-wider text-white flex items-center gap-1">
-                  POS <span className="text-amber-500">Admin</span>
+                  POS <span className="text-emerald-400">Admin</span>
                 </h2>
-                <p className="text-[10px] text-slate-400 font-medium">SPICEUP Platform</p>
+                <p className="text-[10px] text-[#8b949e] font-medium">SPICEUP Platform</p>
               </div>
             )}
           </div>
@@ -713,7 +713,7 @@ const AdminDashboard = () => {
             {/* Desktop Sidebar Collapse Slider Button */}
             <button 
               onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
-              className="hidden md:flex p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-colors"
+              className="hidden md:flex p-1.5 rounded-lg bg-[#21262d] text-[#8b949e] hover:text-white hover:bg-slate-700 transition-colors"
               title={isSidebarCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
             >
               <ChevronLeft className={`w-4 h-4 transition-transform duration-300 ${isSidebarCollapsed ? 'rotate-180' : ''}`} />
@@ -722,7 +722,7 @@ const AdminDashboard = () => {
             {/* Mobile Close Button */}
             <button 
               onClick={() => setIsSidebarOpen(false)}
-              className="md:hidden p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white"
+              className="md:hidden p-1.5 rounded-lg bg-[#21262d] text-[#8b949e] hover:text-white"
             >
               <X className="w-4 h-4" />
             </button>
@@ -737,8 +737,8 @@ const AdminDashboard = () => {
                 onClick={() => { setActiveTab('dashboard'); setIsSidebarOpen(false); }}
                 className={`w-full flex items-center ${isSidebarCollapsed ? 'justify-center' : 'gap-3'} p-3 rounded-xl font-bold transition-all duration-200 ${
                   activeTab === 'dashboard'
-                    ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-slate-950 shadow-md shadow-amber-500/20'
-                    : 'text-slate-400 hover:bg-slate-800/60 hover:text-white'
+                    ? 'bg-emerald-600 text-white shadow-md shadow-emerald-950/40'
+                    : 'text-[#8b949e] hover:bg-[#21262d]/60 hover:text-white'
                 }`}
                 title="Dashboard"
               >
@@ -751,12 +751,12 @@ const AdminDashboard = () => {
                 onClick={() => { setActiveTab('settings'); setIsSidebarOpen(false); }}
                 className={`w-full flex items-center ${isSidebarCollapsed ? 'justify-center' : 'gap-3'} p-3 rounded-xl transition-all duration-200 group ${
                   activeTab === 'settings'
-                    ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-slate-950 font-bold shadow-md shadow-amber-500/20'
-                    : 'text-slate-400 hover:bg-slate-800/60 hover:text-white'
+                    ? 'bg-emerald-600 text-white font-bold shadow-md shadow-emerald-950/40'
+                    : 'text-[#8b949e] hover:bg-[#21262d]/60 hover:text-white'
                 }`}
                 title="Settings"
               >
-                <Settings className="w-5 h-5 group-hover:text-amber-400 transition-colors flex-shrink-0" />
+                <Settings className="w-5 h-5 group-hover:text-emerald-400 transition-colors flex-shrink-0" />
                 {!isSidebarCollapsed && <span>Settings</span>}
               </button>
             </li>
@@ -765,17 +765,17 @@ const AdminDashboard = () => {
                 onClick={() => { setActiveTab('orders'); setIsSidebarOpen(false); }}
                 className={`w-full flex items-center ${isSidebarCollapsed ? 'justify-center' : 'justify-between'} p-3 rounded-xl transition-all duration-200 group ${
                   activeTab === 'orders'
-                    ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-slate-950 font-bold shadow-md shadow-amber-500/20'
-                    : 'text-slate-400 hover:bg-slate-800/60 hover:text-white'
+                    ? 'bg-emerald-600 text-white font-bold shadow-md shadow-emerald-950/40'
+                    : 'text-[#8b949e] hover:bg-[#21262d]/60 hover:text-white'
                 }`}
                 title="Orders"
               >
                 <span className="flex items-center gap-3">
-                  <ShoppingBag className="w-5 h-5 group-hover:text-amber-400 transition-colors flex-shrink-0" />
+                  <ShoppingBag className="w-5 h-5 group-hover:text-emerald-400 transition-colors flex-shrink-0" />
                   {!isSidebarCollapsed && <span>Orders</span>}
                 </span>
                 {!isSidebarCollapsed && (
-                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${activeTab === 'orders' ? 'bg-slate-950 text-amber-400' : 'bg-amber-500/20 text-amber-400'}`}>
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${activeTab === 'orders' ? 'bg-[#0d1117] text-amber-400' : 'bg-amber-500/20 text-amber-400'}`}>
                     {orders.length}
                   </span>
                 )}
@@ -786,13 +786,13 @@ const AdminDashboard = () => {
                 onClick={() => { setActiveTab('kitchen'); setIsSidebarOpen(false); }}
                 className={`w-full flex items-center ${isSidebarCollapsed ? 'justify-center' : 'justify-between'} p-3 rounded-xl transition-all duration-200 group ${
                   activeTab === 'kitchen'
-                    ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-slate-950 font-bold shadow-md shadow-amber-500/20'
-                    : 'text-slate-400 hover:bg-slate-800/60 hover:text-white'
+                    ? 'bg-emerald-600 text-white font-bold shadow-md shadow-emerald-950/40'
+                    : 'text-[#8b949e] hover:bg-[#21262d]/60 hover:text-white'
                 }`}
                 title="Kitchen KDS"
               >
                 <span className="flex items-center gap-3">
-                  <ChefHat className="w-5 h-5 group-hover:text-amber-400 transition-colors flex-shrink-0" />
+                  <ChefHat className="w-5 h-5 group-hover:text-emerald-400 transition-colors flex-shrink-0" />
                   {!isSidebarCollapsed && <span>Kitchen KDS</span>}
                 </span>
                 {!isSidebarCollapsed && (
@@ -807,12 +807,12 @@ const AdminDashboard = () => {
                 onClick={() => { setActiveTab('menu'); setIsSidebarOpen(false); }}
                 className={`w-full flex items-center ${isSidebarCollapsed ? 'justify-center' : 'gap-3'} p-3 rounded-xl transition-all duration-200 group ${
                   activeTab === 'menu'
-                    ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-slate-950 font-bold shadow-md shadow-amber-500/20'
-                    : 'text-slate-400 hover:bg-slate-800/60 hover:text-white'
+                    ? 'bg-emerald-600 text-white font-bold shadow-md shadow-emerald-950/40'
+                    : 'text-[#8b949e] hover:bg-[#21262d]/60 hover:text-white'
                 }`}
                 title="Menu Management"
               >
-                <Utensils className="w-5 h-5 group-hover:text-amber-400 transition-colors flex-shrink-0" />
+                <Utensils className="w-5 h-5 group-hover:text-emerald-400 transition-colors flex-shrink-0" />
                 {!isSidebarCollapsed && <span>Menu Management</span>}
               </button>
             </li>
@@ -821,12 +821,12 @@ const AdminDashboard = () => {
                 onClick={() => { setActiveTab('staff'); setIsSidebarOpen(false); }}
                 className={`w-full flex items-center ${isSidebarCollapsed ? 'justify-center' : 'gap-3'} p-3 rounded-xl transition-all duration-200 group ${
                   activeTab === 'staff'
-                    ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-slate-950 font-bold shadow-md shadow-amber-500/20'
-                    : 'text-slate-400 hover:bg-slate-800/60 hover:text-white'
+                    ? 'bg-emerald-600 text-white font-bold shadow-md shadow-emerald-950/40'
+                    : 'text-[#8b949e] hover:bg-[#21262d]/60 hover:text-white'
                 }`}
                 title="Staff"
               >
-                <Users className="w-5 h-5 group-hover:text-amber-400 transition-colors flex-shrink-0" />
+                <Users className="w-5 h-5 group-hover:text-emerald-400 transition-colors flex-shrink-0" />
                 {!isSidebarCollapsed && <span>Staff</span>}
               </button>
             </li>
@@ -835,17 +835,17 @@ const AdminDashboard = () => {
                 onClick={() => { setActiveTab('tables'); setIsSidebarOpen(false); }}
                 className={`w-full flex items-center ${isSidebarCollapsed ? 'justify-center' : 'justify-between'} p-3 rounded-xl transition-all duration-200 group ${
                   activeTab === 'tables'
-                    ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-slate-950 font-bold shadow-md shadow-amber-500/20'
-                    : 'text-slate-400 hover:bg-slate-800/60 hover:text-white'
+                    ? 'bg-emerald-600 text-white font-bold shadow-md shadow-emerald-950/40'
+                    : 'text-[#8b949e] hover:bg-[#21262d]/60 hover:text-white'
                 }`}
                 title="Tables & QR"
               >
                 <span className="flex items-center gap-3">
-                  <QrCode className="w-5 h-5 group-hover:text-amber-400 transition-colors flex-shrink-0" />
+                  <QrCode className="w-5 h-5 group-hover:text-emerald-400 transition-colors flex-shrink-0" />
                   {!isSidebarCollapsed && <span>Tables & QR</span>}
                 </span>
                 {!isSidebarCollapsed && (
-                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${activeTab === 'tables' ? 'bg-slate-950 text-amber-400' : 'bg-slate-800 text-slate-300'}`}>
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${activeTab === 'tables' ? 'bg-[#0d1117] text-amber-400' : 'bg-[#21262d] text-[#c9d1d9]'}`}>
                     {stats.occupiedTables}/{stats.totalTables}
                   </span>
                 )}
@@ -856,12 +856,12 @@ const AdminDashboard = () => {
                 onClick={() => { setActiveTab('reports'); setIsSidebarOpen(false); }}
                 className={`w-full flex items-center ${isSidebarCollapsed ? 'justify-center' : 'gap-3'} p-3 rounded-xl transition-all duration-200 group ${
                   activeTab === 'reports'
-                    ? 'bg-gradient-to-r from-amber-500 to-orange-600 text-slate-950 font-bold shadow-md shadow-amber-500/20'
-                    : 'text-slate-400 hover:bg-slate-800/60 hover:text-white'
+                    ? 'bg-emerald-600 text-white font-bold shadow-md shadow-emerald-950/40'
+                    : 'text-[#8b949e] hover:bg-[#21262d]/60 hover:text-white'
                 }`}
                 title="Reports"
               >
-                <FileText className="w-5 h-5 group-hover:text-amber-400 transition-colors flex-shrink-0" />
+                <FileText className="w-5 h-5 group-hover:text-emerald-400 transition-colors flex-shrink-0" />
                 {!isSidebarCollapsed && <span>Reports</span>}
               </button>
             </li>
@@ -869,7 +869,7 @@ const AdminDashboard = () => {
         </nav>
         
         {/* Logout Section */}
-        <div className="p-4 border-t border-slate-800">
+        <div className="p-4 border-t border-[#30363d]">
           <button 
             onClick={handleLogout}
             className={`w-full flex items-center ${isSidebarCollapsed ? 'justify-center' : 'justify-between'} p-3 text-red-400 hover:bg-red-500/10 hover:text-red-300 rounded-xl transition-all duration-200 border border-transparent hover:border-red-500/20 font-medium`}
@@ -889,7 +889,7 @@ const AdminDashboard = () => {
         <div>
           
           {/* Top Header Toolbar */}
-          <header className="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800/60 pb-6">
+          <header className="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#30363d]/60 pb-6">
             <div className="flex items-center justify-between">
               <div>
                 <div className="flex items-center gap-2 mb-1">
@@ -910,13 +910,13 @@ const AdminDashboard = () => {
                     Live Sync
                   </button>
                 </div>
-                <p className="text-xs text-slate-400">Overview of today's restaurant operations & revenue performance</p>
+                <p className="text-xs text-[#8b949e]">Overview of today's restaurant operations & revenue performance</p>
               </div>
 
               {/* Three Dots Button for Mobile */}
               <button 
                 onClick={() => setShowThreeDotsMenu(!showThreeDotsMenu)}
-                className="md:hidden p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-amber-400 hover:text-amber-300 hover:border-amber-500/50 transition-all flex items-center justify-center gap-1 shadow-md"
+                className="md:hidden p-2.5 rounded-xl bg-[#161b22] border border-[#30363d] text-amber-400 hover:text-amber-300 hover:border-amber-500/50 transition-all flex items-center justify-center gap-1 shadow-md"
                 title="Quick Dashboard Actions"
               >
                 <MoreVertical className="w-5 h-5 text-amber-400" />
@@ -929,7 +929,7 @@ const AdminDashboard = () => {
               {/* Three Dots Button for Desktop Toolbar */}
               <button 
                 onClick={() => setShowThreeDotsMenu(!showThreeDotsMenu)}
-                className="hidden md:flex p-2.5 rounded-xl bg-slate-900/90 border border-slate-800 text-amber-400 hover:text-amber-300 hover:border-amber-500/50 hover:bg-slate-800 transition-all items-center justify-center gap-1 shadow-md group"
+                className="hidden md:flex p-2.5 rounded-xl bg-[#161b22]/90 border border-[#30363d] text-amber-400 hover:text-amber-300 hover:border-amber-500/50 hover:bg-[#21262d] transition-all items-center justify-center gap-1 shadow-md group"
                 title="Quick Dashboard Actions"
               >
                 <MoreVertical className="w-5 h-5 text-amber-400 group-hover:scale-110 transition-transform" />
@@ -937,7 +937,7 @@ const AdminDashboard = () => {
 
               {/* Three Dots Floating Dropdown Menu */}
               {showThreeDotsMenu && (
-                <div className="absolute right-12 top-14 w-56 glass-panel rounded-2xl border border-slate-800 shadow-2xl p-2 z-50 space-y-1 animate-in fade-in zoom-in-95 duration-150">
+                <div className="absolute right-12 top-14 w-56 glass-panel rounded-2xl border border-[#30363d] shadow-2xl p-2 z-50 space-y-1 animate-in fade-in zoom-in-95 duration-150">
                   <button
                     onClick={() => {
                       setShowThreeDotsMenu(false);
@@ -972,7 +972,7 @@ const AdminDashboard = () => {
                     <span>POS Settings</span>
                   </button>
 
-                  <div className="border-t border-slate-800/80 my-1" />
+                  <div className="border-t border-[#30363d]/80 my-1" />
 
                   <button
                     onClick={() => {
@@ -989,16 +989,16 @@ const AdminDashboard = () => {
               
               {/* Dynamic Search Bar */}
               <div className="relative">
-                <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                <Search className="w-4 h-4 text-[#8b949e] absolute left-3 top-1/2 -translate-y-1/2" />
                 <input 
                   type="text" 
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search orders, tables, items..." 
-                  className="pl-9 pr-4 py-2 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500/50 w-48 lg:w-64 transition-all"
+                  className="pl-9 pr-4 py-2 rounded-xl bg-[#161b22]/80 border border-[#30363d] text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500/50 w-48 lg:w-64 transition-all"
                 />
                 {searchQuery && (
-                  <button onClick={() => setSearchQuery('')} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white">
+                  <button onClick={() => setSearchQuery('')} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#8b949e] hover:text-white">
                     <X className="w-3.5 h-3.5" />
                   </button>
                 )}
@@ -1008,7 +1008,7 @@ const AdminDashboard = () => {
               <div className="relative">
                 <button 
                   onClick={() => { setShowNotifications(!showNotifications); markAllNotificationsRead(); }}
-                  className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition-colors relative"
+                  className="p-2.5 rounded-xl bg-[#161b22] border border-[#30363d] text-[#8b949e] hover:text-white transition-colors relative"
                 >
                   <Bell className="w-4 h-4" />
                   {unreadCount > 0 && (
@@ -1018,18 +1018,18 @@ const AdminDashboard = () => {
 
                 {/* Notifications Popup */}
                 {showNotifications && (
-                  <div className="absolute right-0 top-12 w-80 glass-panel rounded-2xl border border-slate-800 shadow-2xl p-4 z-50 space-y-3">
-                    <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                  <div className="absolute right-0 top-12 w-80 glass-panel rounded-2xl border border-[#30363d] shadow-2xl p-4 z-50 space-y-3">
+                    <div className="flex items-center justify-between border-b border-[#30363d] pb-2">
                       <h4 className="text-xs font-bold text-white flex items-center gap-1.5">
                         <Bell className="w-3.5 h-3.5 text-amber-400" /> Notifications
                       </h4>
-                      <span className="text-[10px] text-slate-400">{notifications.length} alerts</span>
+                      <span className="text-[10px] text-[#8b949e]">{notifications.length} alerts</span>
                     </div>
                     <div className="space-y-2 max-h-56 overflow-y-auto pr-1">
                       {notifications.map(n => (
-                        <div key={n.id} className="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 text-xs">
+                        <div key={n.id} className="p-2.5 rounded-xl bg-[#161b22]/80 border border-[#30363d] text-xs">
                           <p className="text-slate-200 font-medium">{n.text}</p>
-                          <span className="text-[10px] text-slate-500 mt-1 block">{n.time}</span>
+                          <span className="text-[10px] text-[#6e7681] mt-1 block">{n.time}</span>
                         </div>
                       ))}
                     </div>
@@ -1040,17 +1040,17 @@ const AdminDashboard = () => {
               {/* Clickable User Profile Pill */}
               <button 
                 onClick={() => setShowUserProfileModal(true)}
-                className="flex items-center gap-2.5 pl-3 border-l border-slate-800 text-left hover:bg-slate-800/40 p-1.5 rounded-xl transition-all cursor-pointer group"
+                className="flex items-center gap-2.5 pl-3 border-l border-[#30363d] text-left hover:bg-[#21262d]/40 p-1.5 rounded-xl transition-all cursor-pointer group"
                 title="Click to View User Account Details"
               >
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center font-bold text-slate-950 text-sm shadow-md shadow-amber-500/20 group-hover:scale-105 transition-transform">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center font-bold text-slate-950 text-sm shadow-md shadow-emerald-950/40 group-hover:scale-105 transition-transform">
                   {user.name ? user.name.charAt(0).toUpperCase() : 'A'}
                 </div>
                 <div className="hidden sm:block">
-                  <p className="text-xs font-bold text-white capitalize group-hover:text-amber-400 transition-colors">
+                  <p className="text-xs font-bold text-white capitalize group-hover:text-emerald-400 transition-colors">
                     {user.name || 'Agnibha Dey'}
                   </p>
-                  <p className="text-[10px] text-slate-400 capitalize">
+                  <p className="text-[10px] text-[#8b949e] capitalize">
                     {user.role || 'Admin'}
                   </p>
                 </div>
@@ -1066,9 +1066,9 @@ const AdminDashboard = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-8">
                 
                 {/* Card 1: Today's Orders */}
-                <div className="glass-card p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition-all duration-300 flex flex-col justify-between group">
+                <div className="glass-card p-6 rounded-2xl border border-[#30363d] hover:border-[#484f58] transition-all duration-300 flex flex-col justify-between group">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Today's Orders</h3>
+                    <h3 className="text-xs font-semibold text-[#8b949e] uppercase tracking-wider">Today's Orders</h3>
                     <div className="p-2.5 rounded-xl bg-amber-500/10 text-amber-400 group-hover:scale-110 transition-transform">
                       <ShoppingBag className="w-5 h-5" />
                     </div>
@@ -1082,9 +1082,9 @@ const AdminDashboard = () => {
                 </div>
 
                 {/* Card 2: Today's Revenue */}
-                <div className="glass-card p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition-all duration-300 flex flex-col justify-between group">
+                <div className="glass-card p-6 rounded-2xl border border-[#30363d] hover:border-[#484f58] transition-all duration-300 flex flex-col justify-between group">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Today's Revenue</h3>
+                    <h3 className="text-xs font-semibold text-[#8b949e] uppercase tracking-wider">Today's Revenue</h3>
                     <div className="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 group-hover:scale-110 transition-transform">
                       <TrendingUp className="w-5 h-5" />
                     </div>
@@ -1116,16 +1116,16 @@ const AdminDashboard = () => {
                 </div>
 
                 {/* Card 4: Total Tables */}
-                <div className="glass-card p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition-all duration-300 flex flex-col justify-between group">
+                <div className="glass-card p-6 rounded-2xl border border-[#30363d] hover:border-[#484f58] transition-all duration-300 flex flex-col justify-between group">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Tables</h3>
+                    <h3 className="text-xs font-semibold text-[#8b949e] uppercase tracking-wider">Total Tables</h3>
                     <div className="p-2.5 rounded-xl bg-orange-500/10 text-orange-400 group-hover:scale-110 transition-transform">
                       <LayoutGrid className="w-5 h-5" />
                     </div>
                   </div>
                   <div className="mt-4 flex items-baseline justify-between">
                     <p className="text-3xl font-extrabold text-white font-heading">{stats.totalTables}</p>
-                    <span className="text-[11px] font-medium text-slate-400">
+                    <span className="text-[11px] font-medium text-[#8b949e]">
                       {stats.occupiedTables} Occupied
                     </span>
                   </div>
@@ -1134,19 +1134,19 @@ const AdminDashboard = () => {
               </div>
 
               {/* Dynamic Quick Actions Section */}
-              <section className="glass-card p-6 rounded-2xl border border-slate-800/80 mb-8">
+              <section className="glass-card p-6 rounded-2xl border border-[#30363d]/80 mb-8">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-lg font-bold font-heading text-white flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-amber-400" />
                     Quick Actions
                   </h2>
-                  <span className="text-xs text-slate-400">Fast POS Shortcuts</span>
+                  <span className="text-xs text-[#8b949e]">Fast POS Shortcuts</span>
                 </div>
                 
                 <div className="flex flex-wrap gap-4">
                   <button 
                     onClick={() => setActiveTab('menu')}
-                    className="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold rounded-xl transition-all duration-200 border border-slate-700 hover:border-slate-600 flex items-center gap-2 text-sm"
+                    className="px-6 py-3 bg-[#21262d] hover:bg-slate-700 text-slate-200 font-semibold rounded-xl transition-all duration-200 border border-[#484f58] hover:border-slate-600 flex items-center gap-2 text-sm"
                   >
                     <Utensils className="w-4 h-4 text-amber-400" />
                     Manage Menu
@@ -1154,7 +1154,7 @@ const AdminDashboard = () => {
                   
                   <button 
                     onClick={() => setActiveTab('orders')}
-                    className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-bold rounded-xl transition-all duration-200 shadow-lg shadow-orange-500/20 hover:shadow-orange-500/35 hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2 text-sm"
+                    className="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold shadow-sm rounded-xl transition-all duration-200 shadow-lg shadow-emerald-950/40 hover:shadow-orange-500/35 hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2 text-sm"
                   >
                     <ShoppingBag className="w-4 h-4" />
                     View Orders
@@ -1162,7 +1162,7 @@ const AdminDashboard = () => {
                   
                   <button 
                     onClick={() => setActiveTab('tables')}
-                    className="px-6 py-3 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-xl transition-all duration-200 border border-slate-800 hover:border-slate-700 flex items-center gap-2 text-sm"
+                    className="px-6 py-3 bg-[#161b22] hover:bg-[#21262d] text-white font-semibold rounded-xl transition-all duration-200 border border-[#30363d] hover:border-[#484f58] flex items-center gap-2 text-sm"
                   >
                     <LayoutGrid className="w-4 h-4 text-orange-400" />
                     Manage Tables
@@ -1171,7 +1171,7 @@ const AdminDashboard = () => {
               </section>
 
               {/* Dynamic Live Activity Table */}
-              <section className="glass-card p-6 rounded-2xl border border-slate-800/80">
+              <section className="glass-card p-6 rounded-2xl border border-[#30363d]/80">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
                     <Clock className="w-4 h-4 text-amber-400" /> Recent Live Orders
@@ -1182,8 +1182,8 @@ const AdminDashboard = () => {
                 </div>
 
                 <div className="overflow-x-auto">
-                  <table className="w-full text-left text-xs text-slate-300">
-                    <thead className="bg-slate-900/80 text-slate-400 uppercase text-[10px] font-bold tracking-wider">
+                  <table className="w-full text-left text-xs text-[#c9d1d9]">
+                    <thead className="bg-[#161b22]/80 text-[#8b949e] uppercase text-[10px] font-bold tracking-wider">
                       <tr>
                         <th className="p-3 rounded-l-xl">Order ID</th>
                         <th className="p-3">Table</th>
@@ -1195,10 +1195,10 @@ const AdminDashboard = () => {
                     </thead>
                     <tbody className="divide-y divide-slate-800/50">
                       {filteredOrders.slice(0, 4).map(order => (
-                        <tr key={order.id} className="hover:bg-slate-800/40 transition-colors">
+                        <tr key={order.id} className="hover:bg-[#21262d]/40 transition-colors">
                           <td className="p-3 font-mono font-bold text-amber-400">#{order.id}</td>
                           <td className="p-3 font-semibold text-white">{order.table}</td>
-                          <td className="p-3 text-slate-400">{order.items}</td>
+                          <td className="p-3 text-[#8b949e]">{order.items}</td>
                           <td className="p-3 font-bold text-white">₹{order.amount}</td>
                           <td className="p-3">
                             <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold border ${
@@ -1227,7 +1227,7 @@ const AdminDashboard = () => {
                               </button>
                             )}
                             {order.status === 'Completed' && (
-                              <span className="text-slate-500 text-[10px] flex items-center gap-1">
+                              <span className="text-[#6e7681] text-[10px] flex items-center gap-1">
                                 <Check className="w-3 h-3 text-emerald-400" /> Done
                               </span>
                             )}
@@ -1243,13 +1243,13 @@ const AdminDashboard = () => {
 
           {/* Dynamic View for Orders Tab */}
           {activeTab === 'orders' && (
-            <section className="glass-card p-6 rounded-2xl border border-slate-800/80">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 border-b border-slate-800 pb-4">
+            <section className="glass-card p-6 rounded-2xl border border-[#30363d]/80">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 border-b border-[#30363d] pb-4">
                 <div>
                   <h3 className="text-lg font-bold text-white font-heading flex items-center gap-2">
                     <ShoppingBag className="w-5 h-5 text-amber-400" /> Active Restaurant Orders (MongoDB Synced)
                   </h3>
-                  <p className="text-xs text-slate-400 mt-0.5">Live order tickets from POS staff and customer QR menu</p>
+                  <p className="text-xs text-[#8b949e] mt-0.5">Live order tickets from POS staff and customer QR menu</p>
                 </div>
 
                 <div className="flex items-center gap-3">
@@ -1258,7 +1258,7 @@ const AdminDashboard = () => {
                   </span>
                   <button
                     onClick={() => setActiveModal('add_order')}
-                    className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-bold rounded-xl text-xs flex items-center gap-1.5 shadow-lg shadow-amber-500/20 transition-all"
+                    className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold shadow-sm rounded-xl text-xs flex items-center gap-1.5 shadow-lg shadow-emerald-950/40 transition-all"
                   >
                     <Plus className="w-4 h-4" /> Create New Order
                   </button>
@@ -1267,7 +1267,7 @@ const AdminDashboard = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {filteredOrders.map(order => (
-                  <div key={order.id} className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/40 transition-all">
+                  <div key={order.id} className="p-4 rounded-xl bg-[#161b22]/80 border border-[#30363d] hover:border-amber-500/40 transition-all">
                     <div className="flex items-center justify-between mb-2">
                       <span className="font-mono text-sm font-bold text-amber-400">Order #{order.id}</span>
                       <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${
@@ -1279,13 +1279,13 @@ const AdminDashboard = () => {
                       </span>
                     </div>
                     <p className="text-xs text-white font-semibold mb-1">{order.table}</p>
-                    <p className="text-xs text-slate-400 mb-3">{order.items}</p>
-                    <div className="flex items-center justify-between pt-2 border-t border-slate-800">
+                    <p className="text-xs text-[#8b949e] mb-3">{order.items}</p>
+                    <div className="flex items-center justify-between pt-2 border-t border-[#30363d]">
                       <span className="text-sm font-bold text-white">₹{order.amount}</span>
                       <div className="flex gap-1.5">
                         <button 
                           onClick={() => setPrintingOrder(order)}
-                          className="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-lg text-xs flex items-center gap-1 border border-slate-700"
+                          className="px-2.5 py-1 bg-[#21262d] hover:bg-slate-700 text-[#c9d1d9] font-bold rounded-lg text-xs flex items-center gap-1 border border-[#484f58]"
                           title="Print Thermal Receipt"
                         >
                           <Printer className="w-3.5 h-3.5 text-amber-400" />
@@ -1314,15 +1314,15 @@ const AdminDashboard = () => {
 
           {/* Dynamic View for Menu Tab & Inventory Management */}
           {activeTab === 'menu' && (
-            <section className="glass-card p-6 rounded-2xl border border-slate-800/80 space-y-6">
+            <section className="glass-card p-6 rounded-2xl border border-[#30363d]/80 space-y-6">
               
               {/* Header */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#30363d] pb-4">
                 <div>
                   <h3 className="text-lg font-bold text-white font-heading flex items-center gap-2">
                     <Utensils className="w-5 h-5 text-amber-400" /> Menu & Inventory Stock Management
                   </h3>
-                  <p className="text-xs text-slate-400 mt-0.5">Track live inventory counts, low stock warnings, and out-of-stock items</p>
+                  <p className="text-xs text-[#8b949e] mt-0.5">Track live inventory counts, low stock warnings, and out-of-stock items</p>
                 </div>
 
                 <div className="flex items-center gap-3">
@@ -1331,7 +1331,7 @@ const AdminDashboard = () => {
                   </span>
                   <button 
                     onClick={() => setActiveModal('add_item')}
-                    className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-slate-950 font-bold rounded-xl text-xs flex items-center gap-1.5 shadow-md shadow-amber-500/20"
+                    className="px-4 py-2 bg-emerald-600 text-white font-bold rounded-xl text-xs flex items-center gap-1.5 shadow-md shadow-emerald-950/40"
                   >
                     <Plus className="w-4 h-4" /> Add Menu Item
                   </button>
@@ -1346,11 +1346,11 @@ const AdminDashboard = () => {
                   const isOutOfStock = stockQty === 0 || !item.available;
 
                   return (
-                    <div key={item.id} className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3 hover:border-amber-500/30 transition-all">
+                    <div key={item.id} className="p-4 rounded-2xl bg-[#161b22]/80 border border-[#30363d] space-y-3 hover:border-amber-500/30 transition-all">
                       <div className="flex items-start justify-between">
                         <div>
                           <h4 className="text-sm font-bold text-white">{item.name}</h4>
-                          <p className="text-xs text-slate-400">{item.category}</p>
+                          <p className="text-xs text-[#8b949e]">{item.category}</p>
                           <p className="text-sm font-bold text-amber-400 mt-1">₹{item.price}</p>
                         </div>
 
@@ -1370,12 +1370,12 @@ const AdminDashboard = () => {
                       </div>
 
                       {/* Inventory Stock Controls */}
-                      <div className="flex items-center justify-between pt-3 border-t border-slate-800/80 text-xs">
-                        <span className="text-slate-400 font-medium">Stock Count</span>
-                        <div className="flex items-center gap-2 bg-slate-950 px-2.5 py-1 rounded-xl border border-slate-800">
+                      <div className="flex items-center justify-between pt-3 border-t border-[#30363d]/80 text-xs">
+                        <span className="text-[#8b949e] font-medium">Stock Count</span>
+                        <div className="flex items-center gap-2 bg-[#0d1117] px-2.5 py-1 rounded-xl border border-[#30363d]">
                           <button
                             onClick={() => handleUpdateStockQuantity(item.id, stockQty, -1)}
-                            className="p-1 rounded bg-slate-800 text-slate-400 hover:text-white"
+                            className="p-1 rounded bg-[#21262d] text-[#8b949e] hover:text-white"
                             title="Decrease Stock"
                           >
                             <Minus className="w-3 h-3" />
@@ -1383,7 +1383,7 @@ const AdminDashboard = () => {
                           <span className="font-bold text-white text-xs w-6 text-center">{stockQty}</span>
                           <button
                             onClick={() => handleUpdateStockQuantity(item.id, stockQty, 1)}
-                            className="p-1 rounded bg-slate-800 text-slate-400 hover:text-white"
+                            className="p-1 rounded bg-[#21262d] text-[#8b949e] hover:text-white"
                             title="Increase Stock"
                           >
                             <Plus className="w-3 h-3" />
@@ -1400,13 +1400,13 @@ const AdminDashboard = () => {
 
           {/* Dynamic View for Staff Tab */}
           {activeTab === 'staff' && (
-            <section className="glass-card p-6 md:p-8 rounded-2xl border border-slate-800/80">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 border-b border-slate-800 pb-4">
+            <section className="glass-card p-6 md:p-8 rounded-2xl border border-[#30363d]/80">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 border-b border-[#30363d] pb-4">
                 <div>
                   <h3 className="text-lg font-bold text-white font-heading flex items-center gap-2">
                     <Users className="w-5 h-5 text-amber-400" /> Restaurant Staff Management (MongoDB Synced)
                   </h3>
-                  <p className="text-xs text-slate-400 mt-0.5">Manage team members, roles, contact info, and shift statuses in MongoDB Compass</p>
+                  <p className="text-xs text-[#8b949e] mt-0.5">Manage team members, roles, contact info, and shift statuses in MongoDB Compass</p>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-xs text-amber-400 font-semibold bg-amber-500/10 px-3 py-1.5 rounded-xl border border-amber-500/20">
@@ -1414,16 +1414,16 @@ const AdminDashboard = () => {
                   </span>
                   <button 
                     onClick={() => setActiveModal('add_staff')}
-                    className="px-4 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-bold rounded-xl text-xs flex items-center gap-1.5 shadow-lg shadow-amber-500/20 transition-all"
+                    className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold shadow-sm rounded-xl text-xs flex items-center gap-1.5 shadow-lg shadow-emerald-950/40 transition-all"
                   >
                     <UserPlus className="w-4 h-4" /> Add Staff Member
                   </button>
                 </div>
               </div>
               {/* Staff Revenue Leaderboard & Shift Performance */}
-              <div className="mb-8 p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4">
+              <div className="mb-8 p-5 rounded-2xl bg-[#161b22]/60 border border-[#30363d] space-y-4">
                 <div className="flex items-center justify-between">
-                  <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+                  <h4 className="text-xs font-bold text-[#c9d1d9] uppercase tracking-wider flex items-center gap-1.5">
                     <Trophy className="w-4 h-4 text-amber-400" /> Staff Revenue Leaderboard (Shift Performance)
                   </h4>
                   <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 font-bold border border-emerald-500/20">
@@ -1442,7 +1442,7 @@ const AdminDashboard = () => {
                   }))).map((staff, idx) => (
                     <div 
                       key={staff.id || idx}
-                      className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 flex flex-col justify-between hover:border-amber-500/40 transition-all relative overflow-hidden"
+                      className="p-3.5 rounded-xl bg-[#0d1117]/80 border border-[#30363d] flex flex-col justify-between hover:border-amber-500/40 transition-all relative overflow-hidden"
                     >
                       <div className="flex items-center justify-between mb-2">
                         <span className="text-xs font-bold text-white truncate max-w-[120px]">{staff.name}</span>
@@ -1455,7 +1455,7 @@ const AdminDashboard = () => {
                         </span>
                       </div>
 
-                      <div className="space-y-1 text-[11px] text-slate-400">
+                      <div className="space-y-1 text-[11px] text-[#8b949e]">
                         <div className="flex justify-between">
                           <span>Revenue:</span>
                           <span className="font-bold text-amber-400">₹{staff.salesRevenue}</span>
@@ -1464,9 +1464,9 @@ const AdminDashboard = () => {
                           <span>Orders:</span>
                           <span className="font-semibold text-slate-200">{staff.ordersServed} tickets</span>
                         </div>
-                        <div className="flex justify-between text-[10px] text-slate-500 pt-1 border-t border-slate-800/60">
+                        <div className="flex justify-between text-[10px] text-[#6e7681] pt-1 border-t border-[#30363d]/60">
                           <span>Avg Ticket:</span>
-                          <span className="font-mono text-slate-300">₹{staff.avgOrderValue}</span>
+                          <span className="font-mono text-[#c9d1d9]">₹{staff.avgOrderValue}</span>
                         </div>
                       </div>
                     </div>
@@ -1476,9 +1476,9 @@ const AdminDashboard = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {staffList.map(member => (
-                  <div key={member.id} className="p-4.5 rounded-2xl bg-slate-900/90 border border-slate-800/90 hover:border-amber-500/30 flex items-center justify-between transition-all group">
+                  <div key={member.id} className="p-4.5 rounded-2xl bg-[#161b22]/90 border border-[#30363d]/90 hover:border-amber-500/30 flex items-center justify-between transition-all group">
                     <div className="flex items-center gap-3.5">
-                      <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-600 text-slate-950 flex items-center justify-center font-extrabold text-lg shadow-md shadow-orange-500/20 ring-2 ring-amber-400/20">
+                      <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-slate-950 flex items-center justify-center font-extrabold text-lg shadow-md shadow-emerald-950/40 ring-2 ring-amber-400/20">
                         {member.name.charAt(0)}
                       </div>
                       <div>
@@ -1488,12 +1488,12 @@ const AdminDashboard = () => {
                             {member.role}
                           </span>
                         </div>
-                        <p className="text-xs text-slate-400 mt-1 flex items-center gap-1">
-                          <Mail className="w-3 h-3 text-slate-500" /> {member.email}
+                        <p className="text-xs text-[#8b949e] mt-1 flex items-center gap-1">
+                          <Mail className="w-3 h-3 text-[#6e7681]" /> {member.email}
                         </p>
                         {member.phone && (
-                          <p className="text-[11px] text-slate-400 flex items-center gap-1 mt-0.5">
-                            <Phone className="w-3 h-3 text-slate-500" /> {member.phone}
+                          <p className="text-[11px] text-[#8b949e] flex items-center gap-1 mt-0.5">
+                            <Phone className="w-3 h-3 text-[#6e7681]" /> {member.phone}
                           </p>
                         )}
                       </div>
@@ -1503,14 +1503,14 @@ const AdminDashboard = () => {
                       <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold border ${
                         member.status === 'On Duty' ? 'bg-amber-500/10 text-amber-400 border-amber-500/20' :
                         member.status === 'Active' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' :
-                        'bg-slate-800 text-slate-400 border-slate-700'
+                        'bg-[#21262d] text-[#8b949e] border-[#484f58]'
                       }`}>
                         {member.status}
                       </span>
                       
                       <button
                         onClick={() => handleDeleteStaff(member.id, member.name)}
-                        className="p-2 rounded-xl text-slate-500 hover:text-red-400 hover:bg-red-500/10 border border-transparent hover:border-red-500/20 transition-colors"
+                        className="p-2 rounded-xl text-[#6e7681] hover:text-red-400 hover:bg-red-500/10 border border-transparent hover:border-red-500/20 transition-colors"
                         title="Remove Staff Member"
                       >
                         <Trash2 className="w-4 h-4" />
@@ -1524,13 +1524,13 @@ const AdminDashboard = () => {
 
           {/* Dynamic View for Tables & QR Tab */}
           {activeTab === 'tables' && (
-            <section className="glass-card p-6 rounded-2xl border border-slate-800/80">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4 border-b border-slate-800/80 pb-4">
+            <section className="glass-card p-6 rounded-2xl border border-[#30363d]/80">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4 border-b border-[#30363d]/80 pb-4">
                 <div>
                   <h3 className="text-lg font-bold text-white font-heading flex items-center gap-2">
                     <QrCode className="w-5 h-5 text-amber-400" /> Interactive Table QR & Digital Billing Gateway
                   </h3>
-                  <p className="text-xs text-slate-400 mt-0.5">
+                  <p className="text-xs text-[#8b949e] mt-0.5">
                     Scan or click any table's QR code to view assigned table details, ordered food items, and complete billing.
                   </p>
                 </div>
@@ -1540,7 +1540,7 @@ const AdminDashboard = () => {
                   </span>
                   <button 
                     onClick={() => setActiveModal('add_table')}
-                    className="px-4 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-bold rounded-xl text-xs flex items-center gap-1.5 shadow-lg shadow-amber-500/20 transition-all"
+                    className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold shadow-sm rounded-xl text-xs flex items-center gap-1.5 shadow-lg shadow-emerald-950/40 transition-all"
                   >
                     <Plus className="w-4 h-4" /> Add New Table
                   </button>
@@ -1557,9 +1557,9 @@ const AdminDashboard = () => {
                     <div 
                       key={table.id}
                       className={`p-5 rounded-2xl border transition-all duration-300 flex flex-col justify-between relative group ${
-                        table.status === 'Occupied' ? 'bg-slate-900/90 border-amber-500/50 shadow-lg shadow-amber-500/5' :
-                        table.status === 'Reserved' ? 'bg-slate-900/90 border-blue-500/40' :
-                        'bg-slate-900/70 border-slate-800 hover:border-slate-700'
+                        table.status === 'Occupied' ? 'bg-[#161b22]/90 border-amber-500/50 shadow-lg shadow-amber-500/5' :
+                        table.status === 'Reserved' ? 'bg-[#161b22]/90 border-blue-500/40' :
+                        'bg-[#161b22]/70 border-[#30363d] hover:border-[#484f58]'
                       }`}
                     >
                       {/* Table Header & Status Toggle */}
@@ -1570,7 +1570,7 @@ const AdminDashboard = () => {
                           </span>
                           <div>
                             <h4 className="text-sm font-extrabold text-white font-heading">Table {table.number}</h4>
-                            <p className="text-[10px] text-slate-400">{table.seats} Seats Capacity</p>
+                            <p className="text-[10px] text-[#8b949e]">{table.seats} Seats Capacity</p>
                           </div>
                         </div>
 
@@ -1588,7 +1588,7 @@ const AdminDashboard = () => {
 
                           <button
                             onClick={() => handleDeleteTable(table.id, table.number)}
-                            className="p-1 rounded-lg text-slate-500 hover:text-red-400 hover:bg-red-500/10 transition-colors"
+                            className="p-1 rounded-lg text-[#6e7681] hover:text-red-400 hover:bg-red-500/10 transition-colors"
                             title="Remove Table"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
@@ -1606,24 +1606,24 @@ const AdminDashboard = () => {
                           alt={`QR Code for Table ${table.number}`}
                           className="w-32 h-32 object-contain"
                         />
-                        <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-[2px] rounded-xl opacity-0 group-hover/qr:opacity-100 transition-opacity flex flex-col items-center justify-center text-white text-xs font-bold p-2 text-center">
+                        <div className="absolute inset-0 bg-[#0d1117]/80 backdrop-blur-[2px] rounded-xl opacity-0 group-hover/qr:opacity-100 transition-opacity flex flex-col items-center justify-center text-white text-xs font-bold p-2 text-center">
                           <Smartphone className="w-6 h-6 text-amber-400 mb-1 animate-pulse" />
                           <span>Scan / Preview Digital Bill</span>
                         </div>
                       </div>
 
                       {/* Current Order Summary & Billing Preview */}
-                      <div className="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800 text-xs mb-3 space-y-1">
+                      <div className="p-2.5 rounded-xl bg-[#0d1117]/60 border border-[#30363d] text-xs mb-3 space-y-1">
                         <div className="flex items-center justify-between text-[11px]">
-                          <span className="text-slate-400">Current Order:</span>
+                          <span className="text-[#8b949e]">Current Order:</span>
                           <span className="font-mono font-bold text-amber-400">{tableOrder.orderId}</span>
                         </div>
                         <div className="flex items-center justify-between text-[11px]">
-                          <span className="text-slate-400">Items Count:</span>
+                          <span className="text-[#8b949e]">Items Count:</span>
                           <span className="text-slate-200 font-semibold">{tableOrder.items.length} Dishes</span>
                         </div>
-                        <div className="flex items-center justify-between text-[11px] pt-1 border-t border-slate-800/60 font-bold">
-                          <span className="text-slate-300">Bill Total:</span>
+                        <div className="flex items-center justify-between text-[11px] pt-1 border-t border-[#30363d]/60 font-bold">
+                          <span className="text-[#c9d1d9]">Bill Total:</span>
                           <span className="text-emerald-400">₹{tableOrder.grandTotal}</span>
                         </div>
                       </div>
@@ -1631,7 +1631,7 @@ const AdminDashboard = () => {
                       {/* Scan & View Bill Action Button */}
                       <button 
                         onClick={() => setSelectedTableForQR(table)}
-                        className="w-full py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-md transition-all"
+                        className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold shadow-sm rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-md transition-all"
                       >
                         <Eye className="w-4 h-4" /> Scan / Open Digital Bill
                       </button>
@@ -1644,13 +1644,13 @@ const AdminDashboard = () => {
 
           {/* Dynamic View for Settings Tab */}
           {activeTab === 'settings' && (
-            <section className="glass-card p-6 md:p-8 rounded-2xl border border-slate-800/80 max-w-2xl">
-              <div className="flex items-center justify-between mb-6 border-b border-slate-800 pb-4">
+            <section className="glass-card p-6 md:p-8 rounded-2xl border border-[#30363d]/80 max-w-2xl">
+              <div className="flex items-center justify-between mb-6 border-b border-[#30363d] pb-4">
                 <div>
                   <h3 className="text-lg font-bold text-white font-heading flex items-center gap-2">
                     <Settings className="w-5 h-5 text-amber-400" /> Restaurant & Tax Settings
                   </h3>
-                  <p className="text-xs text-slate-400 mt-0.5">Manage restaurant name, address, GST details, and tax modes</p>
+                  <p className="text-xs text-[#8b949e] mt-0.5">Manage restaurant name, address, GST details, and tax modes</p>
                 </div>
                 <span className="px-3 py-1 bg-amber-500/10 text-amber-400 text-xs font-bold rounded-full border border-amber-500/20">
                   POS Config
@@ -1660,7 +1660,7 @@ const AdminDashboard = () => {
               <form onSubmit={handleSaveSettings} className="space-y-5">
                 {/* Restaurant Name */}
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                  <label className="block text-xs font-semibold text-[#c9d1d9] uppercase tracking-wider mb-2 flex items-center gap-1.5">
                     <Building className="w-3.5 h-3.5 text-amber-400" /> Restaurant Name
                   </label>
                   <input
@@ -1675,7 +1675,7 @@ const AdminDashboard = () => {
 
                 {/* Restaurant Address */}
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                  <label className="block text-xs font-semibold text-[#c9d1d9] uppercase tracking-wider mb-2 flex items-center gap-1.5">
                     <MapPin className="w-3.5 h-3.5 text-amber-400" /> Restaurant Address
                   </label>
                   <textarea
@@ -1692,7 +1692,7 @@ const AdminDashboard = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* GST Number */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                    <label className="block text-xs font-semibold text-[#c9d1d9] uppercase tracking-wider mb-2 flex items-center gap-1.5">
                       <FileText className="w-3.5 h-3.5 text-amber-400" /> GSTIN / GST Number
                     </label>
                     <input
@@ -1707,13 +1707,13 @@ const AdminDashboard = () => {
 
                   {/* GST Mode */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                    <label className="block text-xs font-semibold text-[#c9d1d9] uppercase tracking-wider mb-2 flex items-center gap-1.5">
                       <Percent className="w-3.5 h-3.5 text-amber-400" /> GST Tax Mode
                     </label>
                     <select
                       value={restaurantSettings.gstMode}
                       onChange={(e) => setRestaurantSettings({ ...restaurantSettings, gstMode: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl glass-input text-sm text-white bg-slate-900 focus:outline-none cursor-pointer"
+                      className="w-full px-4 py-3 rounded-xl glass-input text-sm text-white bg-[#161b22] focus:outline-none cursor-pointer"
                     >
                       <option value="Exclusive (5%)">Exclusive (5% Added on Bill)</option>
                       <option value="Inclusive (5%)">Inclusive (Tax Included in Price)</option>
@@ -1723,13 +1723,13 @@ const AdminDashboard = () => {
                 </div>
 
                 {/* System Engine Summary */}
-                <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2 text-xs text-slate-400 mt-4">
+                <div className="p-4 rounded-xl bg-[#161b22]/80 border border-[#30363d] space-y-2 text-xs text-[#8b949e] mt-4">
                   <div className="flex justify-between items-center">
-                    <span className="font-semibold text-slate-300">Database Engine:</span>
+                    <span className="font-semibold text-[#c9d1d9]">Database Engine:</span>
                     <span className="text-amber-400 font-mono">MongoDB Compass (`mongodb://127.0.0.1:27017`)</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="font-semibold text-slate-300">POS Backend API:</span>
+                    <span className="font-semibold text-[#c9d1d9]">POS Backend API:</span>
                     <span className="text-emerald-400 font-mono">Express Port 5000</span>
                   </div>
                 </div>
@@ -1737,7 +1737,7 @@ const AdminDashboard = () => {
                 {/* Save Button */}
                 <button
                   type="submit"
-                  className="w-full py-3.5 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-bold rounded-xl shadow-lg transition-all duration-200 flex items-center justify-center gap-2 text-sm"
+                  className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold shadow-sm rounded-xl shadow-lg transition-all duration-200 flex items-center justify-center gap-2 text-sm"
                 >
                   <Save className="w-4 h-4" />
                   Save Restaurant Settings
@@ -1751,12 +1751,12 @@ const AdminDashboard = () => {
             <section className="space-y-6">
               
               {/* Header Title */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#30363d] pb-4">
                 <div>
                   <h3 className="text-xl font-bold text-white font-heading flex items-center gap-2">
                     <FileText className="w-6 h-6 text-amber-400" /> Sales Reports
                   </h3>
-                  <p className="text-xs text-slate-400 mt-0.5">Filter, analyze, and export sales, tax, and staff revenue performance</p>
+                  <p className="text-xs text-[#8b949e] mt-0.5">Filter, analyze, and export sales, tax, and staff revenue performance</p>
                 </div>
                 <span className="px-3 py-1 bg-amber-500/10 text-amber-400 text-xs font-bold rounded-full border border-amber-500/20 w-max">
                   Financial Analytics
@@ -1764,12 +1764,12 @@ const AdminDashboard = () => {
               </div>
 
               {/* Filter Controls Card */}
-              <div className="glass-card p-6 rounded-2xl border border-slate-800/80">
+              <div className="glass-card p-6 rounded-2xl border border-[#30363d]/80">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 items-end">
                   
                   {/* Start Date */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                    <label className="block text-xs font-semibold text-[#c9d1d9] uppercase tracking-wider mb-2">
                       Start Date
                     </label>
                     <input 
@@ -1782,7 +1782,7 @@ const AdminDashboard = () => {
 
                   {/* End Date */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                    <label className="block text-xs font-semibold text-[#c9d1d9] uppercase tracking-wider mb-2">
                       End Date
                     </label>
                     <input 
@@ -1795,13 +1795,13 @@ const AdminDashboard = () => {
 
                   {/* Waiter / Staff Filter */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                    <label className="block text-xs font-semibold text-[#c9d1d9] uppercase tracking-wider mb-2">
                       Waiter / Staff
                     </label>
                     <select
                       value={reportStaffFilter}
                       onChange={(e) => setReportStaffFilter(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded-xl glass-input text-xs text-white bg-slate-900 focus:outline-none"
+                      className="w-full px-4 py-2.5 rounded-xl glass-input text-xs text-white bg-[#161b22] focus:outline-none"
                     >
                       <option value="All Staff">All Staff</option>
                       {staffList.map(member => (
@@ -1814,7 +1814,7 @@ const AdminDashboard = () => {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={handleFilterMongoReports}
-                      className="flex-1 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-amber-500/20 transition-all"
+                      className="flex-1 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold shadow-sm rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-950/40 transition-all"
                     >
                       <Filter className="w-4 h-4" /> Filter
                     </button>
@@ -1852,9 +1852,9 @@ const AdminDashboard = () => {
                 return (
                   <>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      <div className="glass-card p-6 rounded-2xl border border-slate-800 flex items-center justify-between">
+                      <div className="glass-card p-6 rounded-2xl border border-[#30363d] flex items-center justify-between">
                         <div>
-                          <p className="text-xs text-slate-400 uppercase font-bold tracking-wider mb-1">Total Orders</p>
+                          <p className="text-xs text-[#8b949e] uppercase font-bold tracking-wider mb-1">Total Orders</p>
                           <h3 className="text-2xl font-extrabold text-white font-heading">{totalCount}</h3>
                         </div>
                         <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-lg">
@@ -1862,9 +1862,9 @@ const AdminDashboard = () => {
                         </div>
                       </div>
 
-                      <div className="glass-card p-6 rounded-2xl border border-slate-800 flex items-center justify-between">
+                      <div className="glass-card p-6 rounded-2xl border border-[#30363d] flex items-center justify-between">
                         <div>
-                          <p className="text-xs text-slate-400 uppercase font-bold tracking-wider mb-1">Total Revenue</p>
+                          <p className="text-xs text-[#8b949e] uppercase font-bold tracking-wider mb-1">Total Revenue</p>
                           <h3 className="text-2xl font-extrabold text-emerald-400 font-heading">₹{totalRev.toFixed(2)}</h3>
                         </div>
                         <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-lg">
@@ -1872,9 +1872,9 @@ const AdminDashboard = () => {
                         </div>
                       </div>
 
-                      <div className="glass-card p-6 rounded-2xl border border-slate-800 flex items-center justify-between">
+                      <div className="glass-card p-6 rounded-2xl border border-[#30363d] flex items-center justify-between">
                         <div>
-                          <p className="text-xs text-slate-400 uppercase font-bold tracking-wider mb-1">Total Tax (GST 5%)</p>
+                          <p className="text-xs text-[#8b949e] uppercase font-bold tracking-wider mb-1">Total Tax (GST 5%)</p>
                           <h3 className="text-2xl font-extrabold text-amber-400 font-heading">₹{totalT.toFixed(2)}</h3>
                         </div>
                         <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-lg">
@@ -1883,18 +1883,18 @@ const AdminDashboard = () => {
                       </div>
                     </div>
 
-                    <div className="glass-card p-6 rounded-2xl border border-slate-800/80">
-                      <div className="flex items-center justify-between mb-4 border-b border-slate-800 pb-3">
+                    <div className="glass-card p-6 rounded-2xl border border-[#30363d]/80">
+                      <div className="flex items-center justify-between mb-4 border-b border-[#30363d] pb-3">
                         <h4 className="text-base font-bold text-white font-heading flex items-center gap-2">
                           Detailed Report <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">MongoDB Connected</span>
                         </h4>
-                        <span className="text-xs text-slate-400">{totalCount} Records Found</span>
+                        <span className="text-xs text-[#8b949e]">{totalCount} Records Found</span>
                       </div>
 
                       <div className="overflow-x-auto">
                         <table className="w-full text-left text-xs">
                           <thead>
-                            <tr className="border-b border-slate-800 text-slate-400 font-bold uppercase tracking-wider">
+                            <tr className="border-b border-[#30363d] text-[#8b949e] font-bold uppercase tracking-wider">
                               <th className="p-3">Invoice #</th>
                               <th className="p-3">Token</th>
                               <th className="p-3">Date</th>
@@ -1910,16 +1910,16 @@ const AdminDashboard = () => {
                           <tbody className="divide-y divide-slate-800/60">
                             {activeReportData.length === 0 ? (
                               <tr>
-                                <td colSpan="10" className="text-center py-12 text-slate-400">
+                                <td colSpan="10" className="text-center py-12 text-[#8b949e]">
                                   No records found.
                                 </td>
                               </tr>
                             ) : (
                               activeReportData.map((r, idx) => (
-                                <tr key={r.id || idx} className="hover:bg-slate-900/50 transition-colors">
+                                <tr key={r.id || idx} className="hover:bg-[#161b22]/50 transition-colors">
                                   <td className="p-3 font-mono font-bold text-amber-400">{r.invoiceNo}</td>
-                                  <td className="p-3 font-mono text-slate-300">{r.token}</td>
-                                  <td className="p-3 text-slate-400">{r.date}</td>
+                                  <td className="p-3 font-mono text-[#c9d1d9]">{r.token}</td>
+                                  <td className="p-3 text-[#8b949e]">{r.date}</td>
                                   <td className="p-3 font-semibold text-white">{r.table}</td>
                                   <td className="p-3">
                                     <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold border ${
@@ -1930,9 +1930,9 @@ const AdminDashboard = () => {
                                       {r.status}
                                     </span>
                                   </td>
-                                  <td className="p-3 text-right text-slate-300 font-mono">₹{r.preTax}</td>
-                                  <td className="p-3 text-right text-slate-400 font-mono">₹{r.cgst}</td>
-                                  <td className="p-3 text-right text-slate-400 font-mono">₹{r.sgst}</td>
+                                  <td className="p-3 text-right text-[#c9d1d9] font-mono">₹{r.preTax}</td>
+                                  <td className="p-3 text-right text-[#8b949e] font-mono">₹{r.cgst}</td>
+                                  <td className="p-3 text-right text-[#8b949e] font-mono">₹{r.sgst}</td>
                                   <td className="p-3 text-right text-amber-400 font-mono font-bold">₹{r.totalTax}</td>
                                   <td className="p-3 text-right text-emerald-400 font-mono font-extrabold">₹{r.grandTotal}</td>
                                 </tr>
@@ -1958,32 +1958,32 @@ const AdminDashboard = () => {
           const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(customerScanUrl)}`;
 
           return (
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/85 backdrop-blur-md p-4 overflow-y-auto">
-              <div className="glass-panel w-full max-w-xl p-6 md:p-8 rounded-3xl border border-slate-800 relative shadow-2xl my-8">
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0d1117]/85 backdrop-blur-md p-4 overflow-y-auto">
+              <div className="glass-panel w-full max-w-xl p-6 md:p-8 rounded-3xl border border-[#30363d] relative shadow-2xl my-8">
                 
                 {/* Close Button */}
                 <button 
                   onClick={() => setSelectedTableForQR(null)} 
-                  className="absolute top-5 right-5 p-2 rounded-xl bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition-colors"
+                  className="absolute top-5 right-5 p-2 rounded-xl bg-[#161b22] text-[#8b949e] hover:text-white border border-[#30363d] transition-colors"
                 >
                   <X className="w-5 h-5" />
                 </button>
 
                 {/* Modal Header */}
-                <div className="flex items-center gap-3 mb-6 border-b border-slate-800 pb-4">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/20">
-                    <Flame className="w-7 h-7 text-slate-950 fill-slate-950" />
+                <div className="flex items-center gap-3 mb-6 border-b border-[#30363d] pb-4">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center shadow-lg shadow-emerald-950/40">
+                    <Flame className="w-7 h-7 text-emerald-400 fill-emerald-400" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold font-heading text-white flex items-center gap-2">
                       Digital Dining & Billing Gateway
                     </h3>
-                    <p className="text-xs text-slate-400">Scanned Table Session Details & Live Customer Receipt</p>
+                    <p className="text-xs text-[#8b949e]">Scanned Table Session Details & Live Customer Receipt</p>
                   </div>
                 </div>
 
                 {/* Table & QR Scanned Banner */}
-                <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 p-4 rounded-2xl bg-slate-900/90 border border-slate-800 mb-6 items-center">
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 p-4 rounded-2xl bg-[#161b22]/90 border border-[#30363d] mb-6 items-center">
                   
                   <div className="sm:col-span-4 flex flex-col items-center justify-center p-3 bg-white rounded-xl shadow-inner text-center">
                     <img src={qrUrl} alt="Table QR Code" className="w-32 h-32 object-contain" />
@@ -1992,14 +1992,14 @@ const AdminDashboard = () => {
 
                   <div className="sm:col-span-8 space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs text-slate-400">Assigned Table:</span>
+                      <span className="text-xs text-[#8b949e]">Assigned Table:</span>
                       <span className="px-3 py-1 bg-amber-500/20 text-amber-400 font-extrabold text-sm rounded-lg border border-amber-500/30">
                         Table {selectedTableForQR.number} ({selectedTableForQR.seats} Seats)
                       </span>
                     </div>
 
                     <div className="flex items-center justify-between">
-                      <span className="text-xs text-slate-400">Table Status:</span>
+                      <span className="text-xs text-[#8b949e]">Table Status:</span>
                       <span className={`px-2.5 py-0.5 rounded-full text-xs font-bold ${
                         selectedTableForQR.status === 'Occupied' ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20' :
                         'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
@@ -2009,12 +2009,12 @@ const AdminDashboard = () => {
                     </div>
 
                     <div className="flex items-center justify-between">
-                      <span className="text-xs text-slate-400">Order Reference:</span>
+                      <span className="text-xs text-[#8b949e]">Order Reference:</span>
                       <span className="font-mono font-bold text-white text-xs">{tableOrder.orderId}</span>
                     </div>
 
                     <div className="flex items-center justify-between">
-                      <span className="text-xs text-slate-400">Session Status:</span>
+                      <span className="text-xs text-[#8b949e]">Session Status:</span>
                       <span className="text-xs font-semibold text-emerald-400 flex items-center gap-1">
                         <CheckCircle2 className="w-3.5 h-3.5" /> {tableOrder.status}
                       </span>
@@ -2024,13 +2024,13 @@ const AdminDashboard = () => {
 
                 {/* Ordered Food Items List */}
                 <div className="mb-6">
-                  <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                  <h4 className="text-xs font-bold text-[#c9d1d9] uppercase tracking-wider mb-3 flex items-center gap-1.5">
                     <UtensilsCrossed className="w-4 h-4 text-amber-400" /> Food Items Ordered at Table
                   </h4>
 
-                  <div className="rounded-xl border border-slate-800 overflow-hidden">
+                  <div className="rounded-xl border border-[#30363d] overflow-hidden">
                     <table className="w-full text-left text-xs">
-                      <thead className="bg-slate-900 text-slate-400 uppercase text-[10px] font-bold border-b border-slate-800">
+                      <thead className="bg-[#161b22] text-[#8b949e] uppercase text-[10px] font-bold border-b border-[#30363d]">
                         <tr>
                           <th className="p-3">Item Description</th>
                           <th className="p-3 text-center">Qty</th>
@@ -2038,12 +2038,12 @@ const AdminDashboard = () => {
                           <th className="p-3 text-right">Total</th>
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-slate-800/60 bg-slate-950/60">
+                      <tbody className="divide-y divide-slate-800/60 bg-[#0d1117]/60">
                         {tableOrder.items.map(dish => (
-                          <tr key={dish.id} className="hover:bg-slate-900/40">
+                          <tr key={dish.id} className="hover:bg-[#161b22]/40">
                             <td className="p-3 font-semibold text-white">{dish.name}</td>
                             <td className="p-3 text-center font-bold text-amber-400">{dish.qty}x</td>
-                            <td className="p-3 text-right text-slate-400">₹{dish.price}</td>
+                            <td className="p-3 text-right text-[#8b949e]">₹{dish.price}</td>
                             <td className="p-3 text-right font-bold text-white">₹{dish.total}</td>
                           </tr>
                         ))}
@@ -2053,20 +2053,20 @@ const AdminDashboard = () => {
                 </div>
 
                 {/* Billing & Payment Calculation Summary */}
-                <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 mb-6 space-y-2 text-xs">
-                  <div className="flex justify-between text-slate-400">
+                <div className="p-4 rounded-2xl bg-[#161b22]/90 border border-[#30363d] mb-6 space-y-2 text-xs">
+                  <div className="flex justify-between text-[#8b949e]">
                     <span>Food & Beverage Subtotal:</span>
                     <span className="font-semibold text-slate-200">₹{tableOrder.subtotal}</span>
                   </div>
-                  <div className="flex justify-between text-slate-400">
+                  <div className="flex justify-between text-[#8b949e]">
                     <span>CGST + SGST (5%):</span>
                     <span className="font-semibold text-slate-200">₹{tableOrder.gst}</span>
                   </div>
-                  <div className="flex justify-between text-slate-400">
+                  <div className="flex justify-between text-[#8b949e]">
                     <span>Service & Utility Charge (5%):</span>
                     <span className="font-semibold text-slate-200">₹{tableOrder.service}</span>
                   </div>
-                  <div className="flex justify-between text-sm font-extrabold text-white pt-2 border-t border-slate-800 font-heading">
+                  <div className="flex justify-between text-sm font-extrabold text-white pt-2 border-t border-[#30363d] font-heading">
                     <span className="text-amber-400">Grand Total Amount Payable:</span>
                     <span className="text-emerald-400 text-base">₹{tableOrder.grandTotal}</span>
                   </div>
@@ -2089,7 +2089,7 @@ const AdminDashboard = () => {
                     onClick={() => {
                       window.print();
                     }}
-                    className="py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl border border-slate-800 text-xs flex items-center justify-center gap-2 transition-colors"
+                    className="py-3 bg-[#161b22] hover:bg-[#21262d] text-white font-bold rounded-xl border border-[#30363d] text-xs flex items-center justify-center gap-2 transition-colors"
                   >
                     <Printer className="w-4 h-4 text-amber-400" /> Print Digital Receipt
                   </button>
@@ -2102,15 +2102,15 @@ const AdminDashboard = () => {
 
         {/* Dynamic Modal for Adding Menu Item */}
         {activeModal === 'add_item' && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4">
-            <div className="glass-panel w-full max-w-md p-6 rounded-2xl border border-slate-800 relative">
-              <button onClick={() => setActiveModal(null)} className="absolute top-4 right-4 text-slate-400 hover:text-white">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0d1117]/80 backdrop-blur-md p-4">
+            <div className="glass-panel w-full max-w-md p-6 rounded-2xl border border-[#30363d] relative">
+              <button onClick={() => setActiveModal(null)} className="absolute top-4 right-4 text-[#8b949e] hover:text-white">
                 <X className="w-5 h-5" />
               </button>
               <h3 className="text-lg font-bold text-white font-heading mb-4">Add New Menu Item</h3>
               <form onSubmit={handleAddMenuItem} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase mb-1">Item Name</label>
+                  <label className="block text-xs font-semibold text-[#c9d1d9] uppercase mb-1">Item Name</label>
                   <input 
                     type="text" 
                     value={newItem.name}
@@ -2121,11 +2121,11 @@ const AdminDashboard = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase mb-1">Category</label>
+                  <label className="block text-xs font-semibold text-[#c9d1d9] uppercase mb-1">Category</label>
                   <select 
                     value={newItem.category}
                     onChange={(e) => setNewItem({ ...newItem, category: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl glass-input text-sm text-white focus:outline-none bg-slate-900"
+                    className="w-full px-4 py-2.5 rounded-xl glass-input text-sm text-white focus:outline-none bg-[#161b22]"
                   >
                     <option value="Main Course">Main Course</option>
                     <option value="Starters">Starters</option>
@@ -2135,7 +2135,7 @@ const AdminDashboard = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-slate-300 uppercase mb-1">Price (₹)</label>
+                  <label className="block text-xs font-semibold text-[#c9d1d9] uppercase mb-1">Price (₹)</label>
                   <input 
                     type="number" 
                     value={newItem.price}
@@ -2158,28 +2158,28 @@ const AdminDashboard = () => {
 
         {/* Dynamic Modal for Creating New Order */}
         {activeModal === 'add_order' && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4">
-            <div className="glass-panel w-full max-w-md p-6 rounded-2xl border border-slate-800 relative shadow-2xl">
-              <button onClick={() => setActiveModal(null)} className="absolute top-4 right-4 text-slate-400 hover:text-white">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0d1117]/80 backdrop-blur-md p-4">
+            <div className="glass-panel w-full max-w-md p-6 rounded-2xl border border-[#30363d] relative shadow-2xl">
+              <button onClick={() => setActiveModal(null)} className="absolute top-4 right-4 text-[#8b949e] hover:text-white">
                 <X className="w-5 h-5" />
               </button>
-              <div className="flex items-center gap-3 mb-5 border-b border-slate-800 pb-3">
+              <div className="flex items-center gap-3 mb-5 border-b border-[#30363d] pb-3">
                 <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold">
                   <ShoppingBag className="w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-white font-heading">Create New Order</h3>
-                  <p className="text-xs text-slate-400">Save order ticket to MongoDB Compass & send to Kitchen KDS</p>
+                  <p className="text-xs text-[#8b949e]">Save order ticket to MongoDB Compass & send to Kitchen KDS</p>
                 </div>
               </div>
 
               <form onSubmit={handleAddOrder} className="space-y-4 text-xs">
                 <div>
-                  <label className="block font-semibold text-slate-300 uppercase tracking-wider mb-1">Select Restaurant Table</label>
+                  <label className="block font-semibold text-[#c9d1d9] uppercase tracking-wider mb-1">Select Restaurant Table</label>
                   <select
                     value={newOrder.table}
                     onChange={(e) => setNewOrder({ ...newOrder, table: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl glass-input text-sm text-white focus:outline-none bg-slate-900 cursor-pointer"
+                    className="w-full px-4 py-2.5 rounded-xl glass-input text-sm text-white focus:outline-none bg-[#161b22] cursor-pointer"
                   >
                     {tables.map(t => (
                       <option key={t.id} value={t.number}>{t.number} ({t.status})</option>
@@ -2188,7 +2188,7 @@ const AdminDashboard = () => {
                 </div>
 
                 <div>
-                  <label className="block font-semibold text-slate-300 uppercase tracking-wider mb-1">Ordered Dishes / Items</label>
+                  <label className="block font-semibold text-[#c9d1d9] uppercase tracking-wider mb-1">Ordered Dishes / Items</label>
                   <input 
                     type="text" 
                     value={newOrder.items}
@@ -2200,7 +2200,7 @@ const AdminDashboard = () => {
                 </div>
 
                 <div>
-                  <label className="block font-semibold text-slate-300 uppercase tracking-wider mb-1">Total Bill Amount (₹)</label>
+                  <label className="block font-semibold text-[#c9d1d9] uppercase tracking-wider mb-1">Total Bill Amount (₹)</label>
                   <input 
                     type="number" 
                     value={newOrder.amount}
@@ -2224,25 +2224,25 @@ const AdminDashboard = () => {
 
         {/* Dynamic Modal for Adding Staff Member */}
         {activeModal === 'add_staff' && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4">
-            <div className="glass-panel w-full max-w-md p-6 rounded-2xl border border-slate-800 relative shadow-2xl">
-              <button onClick={() => setActiveModal(null)} className="absolute top-4 right-4 text-slate-400 hover:text-white">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0d1117]/80 backdrop-blur-md p-4">
+            <div className="glass-panel w-full max-w-md p-6 rounded-2xl border border-[#30363d] relative shadow-2xl">
+              <button onClick={() => setActiveModal(null)} className="absolute top-4 right-4 text-[#8b949e] hover:text-white">
                 <X className="w-5 h-5" />
               </button>
               
-              <div className="flex items-center gap-3 mb-5 border-b border-slate-800 pb-3">
+              <div className="flex items-center gap-3 mb-5 border-b border-[#30363d] pb-3">
                 <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold">
                   <UserPlus className="w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-white font-heading">Add New Staff Member</h3>
-                  <p className="text-xs text-slate-400">Save new staff profile directly to MongoDB Compass</p>
+                  <p className="text-xs text-[#8b949e]">Save new staff profile directly to MongoDB Compass</p>
                 </div>
               </div>
 
               <form onSubmit={handleAddStaff} className="space-y-4 text-xs">
                 <div>
-                  <label className="block font-semibold text-slate-300 uppercase tracking-wider mb-1">Staff Member Name</label>
+                  <label className="block font-semibold text-[#c9d1d9] uppercase tracking-wider mb-1">Staff Member Name</label>
                   <input 
                     type="text" 
                     value={newStaff.name}
@@ -2254,11 +2254,11 @@ const AdminDashboard = () => {
                 </div>
 
                 <div>
-                  <label className="block font-semibold text-slate-300 uppercase tracking-wider mb-1">Assigned Role</label>
+                  <label className="block font-semibold text-[#c9d1d9] uppercase tracking-wider mb-1">Assigned Role</label>
                   <select 
                     value={newStaff.role}
                     onChange={(e) => setNewStaff({ ...newStaff, role: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl glass-input text-sm text-white focus:outline-none bg-slate-900 cursor-pointer"
+                    className="w-full px-4 py-2.5 rounded-xl glass-input text-sm text-white focus:outline-none bg-[#161b22] cursor-pointer"
                   >
                     <option value="Head Chef">Head Chef</option>
                     <option value="Kitchen Staff">Kitchen Staff</option>
@@ -2272,7 +2272,7 @@ const AdminDashboard = () => {
 
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block font-semibold text-slate-300 uppercase tracking-wider mb-1">Email Address</label>
+                    <label className="block font-semibold text-[#c9d1d9] uppercase tracking-wider mb-1">Email Address</label>
                     <input 
                       type="email" 
                       value={newStaff.email}
@@ -2283,7 +2283,7 @@ const AdminDashboard = () => {
                   </div>
 
                   <div>
-                    <label className="block font-semibold text-slate-300 uppercase tracking-wider mb-1">Phone Number</label>
+                    <label className="block font-semibold text-[#c9d1d9] uppercase tracking-wider mb-1">Phone Number</label>
                     <input 
                       type="text" 
                       value={newStaff.phone}
@@ -2295,11 +2295,11 @@ const AdminDashboard = () => {
                 </div>
 
                 <div>
-                  <label className="block font-semibold text-slate-300 uppercase tracking-wider mb-1">Shift Status</label>
+                  <label className="block font-semibold text-[#c9d1d9] uppercase tracking-wider mb-1">Shift Status</label>
                   <select 
                     value={newStaff.status}
                     onChange={(e) => setNewStaff({ ...newStaff, status: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl glass-input text-sm text-white focus:outline-none bg-slate-900 cursor-pointer"
+                    className="w-full px-4 py-2.5 rounded-xl glass-input text-sm text-white focus:outline-none bg-[#161b22] cursor-pointer"
                   >
                     <option value="Active">Active</option>
                     <option value="On Duty">On Duty</option>
@@ -2320,25 +2320,25 @@ const AdminDashboard = () => {
 
         {/* Dynamic Modal for Adding New Table */}
         {activeModal === 'add_table' && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4">
-            <div className="glass-panel w-full max-w-md p-6 rounded-2xl border border-slate-800 relative shadow-2xl">
-              <button onClick={() => setActiveModal(null)} className="absolute top-4 right-4 text-slate-400 hover:text-white">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0d1117]/80 backdrop-blur-md p-4">
+            <div className="glass-panel w-full max-w-md p-6 rounded-2xl border border-[#30363d] relative shadow-2xl">
+              <button onClick={() => setActiveModal(null)} className="absolute top-4 right-4 text-[#8b949e] hover:text-white">
                 <X className="w-5 h-5" />
               </button>
               
-              <div className="flex items-center gap-3 mb-5 border-b border-slate-800 pb-3">
+              <div className="flex items-center gap-3 mb-5 border-b border-[#30363d] pb-3">
                 <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold">
                   <QrCode className="w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-white font-heading">Add New Table</h3>
-                  <p className="text-xs text-slate-400">Save table configuration & auto-generate QR code in MongoDB</p>
+                  <p className="text-xs text-[#8b949e]">Save table configuration & auto-generate QR code in MongoDB</p>
                 </div>
               </div>
 
               <form onSubmit={handleAddTable} className="space-y-4 text-xs">
                 <div>
-                  <label className="block font-semibold text-slate-300 uppercase tracking-wider mb-1">Table Number / Code</label>
+                  <label className="block font-semibold text-[#c9d1d9] uppercase tracking-wider mb-1">Table Number / Code</label>
                   <input 
                     type="text" 
                     value={newTable.number}
@@ -2350,11 +2350,11 @@ const AdminDashboard = () => {
                 </div>
 
                 <div>
-                  <label className="block font-semibold text-slate-300 uppercase tracking-wider mb-1">Seating Capacity (Guests)</label>
+                  <label className="block font-semibold text-[#c9d1d9] uppercase tracking-wider mb-1">Seating Capacity (Guests)</label>
                   <select 
                     value={newTable.seats}
                     onChange={(e) => setNewTable({ ...newTable, seats: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl glass-input text-sm text-white focus:outline-none bg-slate-900 cursor-pointer"
+                    className="w-full px-4 py-2.5 rounded-xl glass-input text-sm text-white focus:outline-none bg-[#161b22] cursor-pointer"
                   >
                     <option value="2">2 Seats (Couples Table)</option>
                     <option value="4">4 Seats (Family Table)</option>
@@ -2365,11 +2365,11 @@ const AdminDashboard = () => {
                 </div>
 
                 <div>
-                  <label className="block font-semibold text-slate-300 uppercase tracking-wider mb-1">Initial Status</label>
+                  <label className="block font-semibold text-[#c9d1d9] uppercase tracking-wider mb-1">Initial Status</label>
                   <select 
                     value={newTable.status}
                     onChange={(e) => setNewTable({ ...newTable, status: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl glass-input text-sm text-white focus:outline-none bg-slate-900 cursor-pointer"
+                    className="w-full px-4 py-2.5 rounded-xl glass-input text-sm text-white focus:outline-none bg-[#161b22] cursor-pointer"
                   >
                     <option value="Available">Available</option>
                     <option value="Occupied">Occupied</option>
@@ -2399,18 +2399,18 @@ const AdminDashboard = () => {
 
         {/* Dynamic Modal for User Profile & Account Details */}
         {showUserProfileModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4 animate-in fade-in duration-200">
-            <div className="glass-panel w-full max-w-md p-6 rounded-3xl border border-slate-800 relative shadow-2xl">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0d1117]/80 backdrop-blur-md p-4 animate-in fade-in duration-200">
+            <div className="glass-panel w-full max-w-md p-6 rounded-3xl border border-[#30363d] relative shadow-2xl">
               
               <button 
                 onClick={() => setShowUserProfileModal(false)}
-                className="absolute top-4 right-4 p-2 rounded-xl bg-slate-900 text-slate-400 hover:text-white border border-slate-800 transition-colors"
+                className="absolute top-4 right-4 p-2 rounded-xl bg-[#161b22] text-[#8b949e] hover:text-white border border-[#30363d] transition-colors"
               >
                 <X className="w-4 h-4" />
               </button>
 
-              <div className="flex items-center gap-4 border-b border-slate-800 pb-5 mb-5">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-600 flex items-center justify-center font-black text-slate-950 text-2xl shadow-xl shadow-amber-500/20 ring-2 ring-amber-400/30 flex-shrink-0">
+              <div className="flex items-center gap-4 border-b border-[#30363d] pb-5 mb-5">
+                <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center font-black text-slate-950 text-2xl shadow-xl shadow-emerald-950/40 ring-2 ring-amber-400/30 flex-shrink-0">
                   {user.name ? user.name.charAt(0).toUpperCase() : 'A'}
                 </div>
                 <div>
@@ -2426,22 +2426,22 @@ const AdminDashboard = () => {
               </div>
 
               <div className="space-y-3 mb-6 text-xs">
-                <div className="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
-                  <span className="text-slate-400 flex items-center gap-2">
+                <div className="p-3.5 rounded-2xl bg-[#161b22]/80 border border-[#30363d] flex items-center justify-between">
+                  <span className="text-[#8b949e] flex items-center gap-2">
                     <Mail className="w-4 h-4 text-amber-400" /> Email Address
                   </span>
                   <span className="text-white font-medium">{user.email || 'admin@gmail.com'}</span>
                 </div>
 
-                <div className="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
-                  <span className="text-slate-400 flex items-center gap-2">
+                <div className="p-3.5 rounded-2xl bg-[#161b22]/80 border border-[#30363d] flex items-center justify-between">
+                  <span className="text-[#8b949e] flex items-center gap-2">
                     <UserCheck className="w-4 h-4 text-amber-400" /> Account Role
                   </span>
                   <span className="text-white font-semibold uppercase">{user.role || 'Admin'}</span>
                 </div>
 
-                <div className="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
-                  <span className="text-slate-400 flex items-center gap-2">
+                <div className="p-3.5 rounded-2xl bg-[#161b22]/80 border border-[#30363d] flex items-center justify-between">
+                  <span className="text-[#8b949e] flex items-center gap-2">
                     <Clock className="w-4 h-4 text-amber-400" /> Session Security
                   </span>
                   <span className="text-emerald-400 font-medium">JWT Signed (24h Active)</span>
@@ -2462,7 +2462,7 @@ const AdminDashboard = () => {
 
                 <button
                   onClick={() => setShowUserProfileModal(false)}
-                  className="flex-1 py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold transition-all text-xs"
+                  className="flex-1 py-3 px-4 rounded-xl bg-[#21262d] hover:bg-slate-700 text-slate-200 font-bold transition-all text-xs"
                 >
                   Close Profile
                 </button>
@@ -2473,9 +2473,9 @@ const AdminDashboard = () => {
         )}
 
         {/* Footer Note */}
-        <footer className="mt-8 pt-4 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
+        <footer className="mt-8 pt-4 border-t border-[#30363d]/60 flex flex-col sm:flex-row items-center justify-between text-xs text-[#6e7681] gap-2">
           <span>&copy; {new Date().getFullYear()} SPICEUP Restaurant Management System</span>
-          <span className="flex items-center gap-1 text-slate-400">
+          <span className="flex items-center gap-1 text-[#8b949e]">
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Terminal Ready • Connected to POS Gateway
           </span>
         </footer>

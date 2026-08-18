@@ -30,21 +30,21 @@ const ThermalReceiptModal = ({ order, settings, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/85 backdrop-blur-md p-4 animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0d1117]/85 backdrop-blur-sm p-4 animate-fade-in">
       
       {/* Modal Container */}
-      <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 max-w-sm w-full shadow-2xl relative space-y-4 max-h-[90vh] overflow-y-auto">
+      <div className="bg-[#161b22] border border-[#30363d] rounded-2xl p-5 max-w-sm w-full shadow-2xl relative space-y-4 max-h-[90vh] overflow-y-auto">
         
         {/* Top Header & Actions */}
-        <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div className="flex items-center justify-between border-b border-[#30363d] pb-3">
           <div className="flex items-center gap-2">
-            <Printer className="w-5 h-5 text-amber-400" />
+            <Printer className="w-4 h-4 text-emerald-400" />
             <h3 className="text-sm font-bold text-white font-heading">Thermal Invoice Receipt</h3>
           </div>
 
           <button 
             onClick={onClose}
-            className="p-1.5 rounded-xl bg-slate-800 text-slate-400 hover:text-white transition-colors"
+            className="p-1 rounded-lg bg-[#21262d] text-[#8b949e] hover:text-white border border-[#30363d] transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
@@ -56,7 +56,7 @@ const ThermalReceiptModal = ({ order, settings, onClose }) => {
           {/* Restaurant Header */}
           <div className="text-center space-y-1 pb-3 border-b border-dashed border-slate-400">
             <div className="flex items-center justify-center gap-1.5">
-              <Flame className="w-5 h-5 text-orange-600 fill-orange-600" />
+              <Flame className="w-4 h-4 text-emerald-600 fill-emerald-600" />
               <h2 className="text-sm font-extrabold uppercase font-sans tracking-wide text-slate-950">{restaurantName}</h2>
             </div>
             <p className="text-[10px] text-slate-700 leading-tight">{restaurantAddress}</p>
@@ -142,17 +142,17 @@ const ThermalReceiptModal = ({ order, settings, onClose }) => {
         </div>
 
         {/* Action Buttons */}
-        <div className="grid grid-cols-2 gap-3 pt-2">
+        <div className="grid grid-cols-2 gap-2.5 pt-1">
           <button
             onClick={handlePrint}
-            className="py-3 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-extrabold rounded-2xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 transition-all"
+            className="py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg text-xs flex items-center justify-center gap-1.5 shadow-md shadow-emerald-950/40 transition-all"
           >
-            <Printer className="w-4 h-4" /> Print Thermal Ticket
+            <Printer className="w-3.5 h-3.5" /> Print Ticket
           </button>
 
           <button
             onClick={onClose}
-            className="py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-2xl text-xs flex items-center justify-center gap-2 transition-colors"
+            className="py-2.5 bg-[#21262d] hover:bg-[#30363d] text-[#c9d1d9] font-medium rounded-lg text-xs flex items-center justify-center gap-1.5 transition-colors border border-[#30363d]"
           >
             Close Invoice
           </button>
