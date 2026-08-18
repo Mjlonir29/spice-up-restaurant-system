@@ -2,6 +2,9 @@
 
 A full-stack, real-time Restaurant Management & Point of Sale (POS) system built with **React**, **Node.js/Express**, and **MongoDB**. Designed for seamless floor management, kitchen display dispatching, digital table ordering, and GST compliance.
 
+🔗 **Live Production Demo**: [https://spice-up-restaurant-system-client-nu.vercel.app](https://spice-up-restaurant-system-client-nu.vercel.app/)  
+⚡ **Live Backend API**: [https://spice-up-api.onrender.com](https://spice-up-api.onrender.com)  
+
 ---
 
 ## 🚀 Key Features
