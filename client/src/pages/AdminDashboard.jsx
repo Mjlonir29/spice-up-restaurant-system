@@ -1,3 +1,4 @@
+import { API_BASE_URL } from '../config';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -87,7 +88,7 @@ const AdminDashboard = () => {
     e.preventDefault();
     localStorage.setItem('pos_restaurant_settings', JSON.stringify(restaurantSettings));
     try {
-      await axios.post('http://localhost:5000/api/settings', restaurantSettings);
+      await axios.post(`${API_BASE_URL}/api/settings`, restaurantSettings);
       showToast('Restaurant & GST Settings saved to MongoDB Compass!');
     } catch (err) {
       showToast('Restaurant & GST Settings saved successfully!');
@@ -102,7 +103,7 @@ const AdminDashboard = () => {
 
   const handleFilterMongoReports = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/reports', {
+      const res = await axios.get(`${API_BASE_URL}/api/reports`, {
         params: {
           staff: reportStaffFilter,
           startDate: reportStartDate,
@@ -352,14 +353,14 @@ const AdminDashboard = () => {
   const fetchMongoData = async () => {
     try {
       const [statsRes, ordersRes, tablesRes, menuRes, staffRes, settingsRes, reportsRes, perfRes] = await Promise.allSettled([
-        axios.get('http://localhost:5000/api/dashboard/stats'),
-        axios.get('http://localhost:5000/api/orders'),
-        axios.get('http://localhost:5000/api/tables'),
-        axios.get('http://localhost:5000/api/menu'),
-        axios.get('http://localhost:5000/api/staff'),
-        axios.get('http://localhost:5000/api/settings'),
-        axios.get('http://localhost:5000/api/reports'),
-        axios.get('http://localhost:5000/api/staff/performance')
+        axios.get(`${API_BASE_URL}/api/dashboard/stats`),
+        axios.get(`${API_BASE_URL}/api/orders`),
+        axios.get(`${API_BASE_URL}/api/tables`),
+        axios.get(`${API_BASE_URL}/api/menu`),
+        axios.get(`${API_BASE_URL}/api/staff`),
+        axios.get(`${API_BASE_URL}/api/settings`),
+        axios.get(`${API_BASE_URL}/api/reports`),
+        axios.get(`${API_BASE_URL}/api/staff/performance`)
       ]);
 
       if (perfRes.status === 'fulfilled' && perfRes.value.data?.success && perfRes.value.data.leaderboard.length > 0) {
@@ -420,7 +421,7 @@ const AdminDashboard = () => {
     }
 
     try {
-      const res = await axios.post('http://localhost:5000/api/staff', newStaff);
+      const res = await axios.post(`${API_BASE_URL}/api/staff`, newStaff);
       if (res.data?.success && res.data.staff) {
         setStaffList(prev => [res.data.staff, ...prev]);
         showToast(`Staff member "${newStaff.name}" added to MongoDB Compass!`);
@@ -449,7 +450,7 @@ const AdminDashboard = () => {
 
   const handleDeleteStaff = async (id, name) => {
     try {
-      await axios.delete(`http://localhost:5000/api/staff/${id}`);
+      await axios.delete(`${API_BASE_URL}/api/staff/${id}`);
       showToast(`Removed staff member "${name}" from MongoDB`);
     } catch (e) {}
     setStaffList(prev => prev.filter(s => s.id !== id));
@@ -463,7 +464,7 @@ const AdminDashboard = () => {
     }
 
     try {
-      const res = await axios.post('http://localhost:5000/api/tables', newTable);
+      const res = await axios.post(`${API_BASE_URL}/api/tables`, newTable);
       if (res.data?.success && res.data.table) {
         setTables(prev => [...prev, res.data.table]);
         showToast(`Table ${res.data.table.number} added to MongoDB Compass!`);
@@ -498,7 +499,7 @@ const AdminDashboard = () => {
 
   const handleDeleteTable = async (id, number) => {
     try {
-      await axios.delete(`http://localhost:5000/api/tables/${id}`);
+      await axios.delete(`${API_BASE_URL}/api/tables/${id}`);
       showToast(`Removed Table ${number} from MongoDB`);
     } catch (e) {}
     setTables(prev => prev.filter(t => t.id !== id));
@@ -535,7 +536,7 @@ const AdminDashboard = () => {
     setOrders(prev => prev.map(o => o.id === orderId ? { ...o, status: newStatus } : o));
     showToast(`Order #${orderId} status updated to ${newStatus}`);
     try {
-      await axios.put(`http://localhost:5000/api/orders/${orderId}`, { status: newStatus });
+      await axios.put(`${API_BASE_URL}/api/orders/${orderId}`, { status: newStatus });
     } catch (err) {}
   };
 
@@ -551,7 +552,7 @@ const AdminDashboard = () => {
     }));
     showToast(`Table status updated!`);
     try {
-      await axios.put(`http://localhost:5000/api/tables/${tableId}`, { status: targetStatus });
+      await axios.put(`${API_BASE_URL}/api/tables/${tableId}`, { status: targetStatus });
     } catch (err) {}
   };
 
@@ -570,7 +571,7 @@ const AdminDashboard = () => {
     setActiveModal(null);
     showToast(`Added "${item.name}" to menu!`);
     try {
-      await axios.post('http://localhost:5000/api/menu', item);
+      await axios.post(`${API_BASE_URL}/api/menu`, item);
     } catch (err) {}
   };
 
@@ -600,7 +601,7 @@ const AdminDashboard = () => {
     showToast(`Created Order #${orderId} for ${createdOrder.table}!`);
 
     try {
-      await axios.post('http://localhost:5000/api/orders', {
+      await axios.post(`${API_BASE_URL}/api/orders`, {
         orderId,
         table: createdOrder.table,
         items: createdOrder.items,
@@ -621,7 +622,7 @@ const AdminDashboard = () => {
     showToast(`Updated stock count to ${newStock}!`);
 
     try {
-      await axios.put(`http://localhost:5000/api/menu/${itemId}/stock`, { stockQuantity: newStock });
+      await axios.put(`${API_BASE_URL}/api/menu/${itemId}/stock`, { stockQuantity: newStock });
     } catch (err) {}
   };
 
@@ -637,7 +638,7 @@ const AdminDashboard = () => {
     showToast(`Marked "${item.name}" as ${newAvailable ? 'In Stock (30 units)' : 'Out of Stock'}!`);
 
     try {
-      await axios.put(`http://localhost:5000/api/menu/${item.id}`, { available: newAvailable, stockQuantity: newStock });
+      await axios.put(`${API_BASE_URL}/api/menu/${item.id}`, { available: newAvailable, stockQuantity: newStock });
     } catch (err) {}
   };
 

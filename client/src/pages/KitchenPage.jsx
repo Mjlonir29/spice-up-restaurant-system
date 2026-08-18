@@ -1,3 +1,4 @@
+import { API_BASE_URL } from '../config';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -12,7 +13,7 @@ const KitchenPage = () => {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/orders');
+      const res = await axios.get(`${API_BASE_URL}/api/orders`);
       if (res.data?.success) {
         setOrders(res.data.orders);
       }
@@ -35,7 +36,7 @@ const KitchenPage = () => {
     setTimeout(() => setToastMsg(''), 3000);
 
     try {
-      await axios.put(`http://localhost:5000/api/orders/${orderId}`, { status: targetStatus });
+      await axios.put(`${API_BASE_URL}/api/orders/${orderId}`, { status: targetStatus });
     } catch (e) {}
   };
 

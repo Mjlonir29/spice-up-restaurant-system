@@ -1,3 +1,4 @@
+import { API_BASE_URL } from '../config';
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -88,9 +89,9 @@ const CustomerTableView = () => {
   const fetchLiveTableData = async () => {
     try {
       const [ordersRes, tablesRes, menuRes] = await Promise.allSettled([
-        axios.get('http://localhost:5000/api/orders'),
-        axios.get('http://localhost:5000/api/tables'),
-        axios.get('http://localhost:5000/api/menu')
+        axios.get(`${API_BASE_URL}/api/orders`),
+        axios.get(`${API_BASE_URL}/api/tables`),
+        axios.get(`${API_BASE_URL}/api/menu`)
       ]);
 
       if (menuRes.status === 'fulfilled' && menuRes.value.data?.success && menuRes.value.data.menu.length > 0) {
@@ -198,7 +199,7 @@ const CustomerTableView = () => {
     const itemOrderStr = `${customQty}x ${selectedCustomizingDish.name}`;
 
     try {
-      const res = await axios.post('http://localhost:5000/api/orders', {
+      const res = await axios.post(`${API_BASE_URL}/api/orders`, {
         orderId: `10${Date.now().toString().slice(-2)}`,
         table: formattedTableNumber,
         items: itemOrderStr,

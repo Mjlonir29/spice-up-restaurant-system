@@ -1,3 +1,4 @@
+import { API_BASE_URL } from '../config';
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
@@ -78,7 +79,7 @@ const Login = () => {
     const loginPass = password.trim();
 
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', {
+      const res = await axios.post(`${API_BASE_URL}/api/auth/login`, {
         username: loginUser,
         password: loginPass,
         role: selectedRole
@@ -147,7 +148,7 @@ const Login = () => {
     setForgotLoading(true);
 
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/send-otp', {
+      const res = await axios.post(`${API_BASE_URL}/api/auth/send-otp`, {
         email: emailToUse
       });
 
@@ -179,7 +180,7 @@ const Login = () => {
     setForgotLoading(true);
 
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/verify-otp', {
+      const res = await axios.post(`${API_BASE_URL}/api/auth/verify-otp`, {
         email: forgotEmail.trim(),
         otp: otpVal
       });
@@ -216,7 +217,7 @@ const Login = () => {
     setForgotLoading(true);
 
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/reset-password', {
+      const res = await axios.post(`${API_BASE_URL}/api/auth/reset-password`, {
         email: forgotEmail.trim(),
         otp: verificationOtp.trim(),
         newPassword: newPassword
